@@ -1,0 +1,343 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BugPage.MainWindow"
+        Title="BugPage">
+
+	<Grid RowDefinitions="450" ColumnDefinitions="800">
+
+		<StackPanel Name="Reg" IsVisible="True" Grid.Row="0">
+			<Grid
+				ColumnDefinitions="125,550,125"
+				RowDefinitions="450"
+				Margin="0"
+				Background="Wheat"
+				IsVisible ="True">
+				<TabControl
+					Margin="5"
+					TabStripPlacement="Top"
+					HorizontalAlignment="Center"
+					Grid.Row="1"
+					Grid.Column="1" >
+					<TabItem Header="Регистрация"
+							 Grid.Row="0"
+							 Grid.Column="0"
+							 Name="Tab1"
+							 IsVisible ="True">
+						<Border
+							Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							BoxShadow="5 5 10 0 Gray"
+							BorderBrush="Black"
+							BorderThickness="3"
+							CornerRadius="10"
+							Padding="10" Margin="10">
+							<StackPanel
+								Width="230"
+								Margin="10">
+								<TextBlock Text="Регистрация"
+										   TextAlignment="Center"
+										   FontSize="30"
+										   Margin="5"/>
+								<StackPanel
+									Name="registration">
+									<TextBox Name="name" Watermark="Имя"
+											 Opacity="5"
+											 Margin="0 5"
+											 CornerRadius="100"
+											 Background="Gainsboro"
+											 />
+									<TextBox Watermark="Фамилия"
+											 Height="0"
+											 Name="surname"
+											 Opacity="5"
+											 Margin="0 5"
+											 CornerRadius="100"
+											 Background="Gainsboro"/>
+									<TextBox Watermark="Адрес эл.почты"
+											 Name="email"
+											 Opacity="5"
+											 Margin="0 5"
+											 CornerRadius="100"
+											 Background="Gainsboro"/>
+									<TextBox Watermark="Пароль" PasswordChar="*"
+											 Name="password"
+											 Opacity="5" Margin="0 5" CornerRadius="100"
+											 Background="Gainsboro"/>
+									<CheckBox Content="Подтеврдите что вы согласны с нашими улосвиями"
+											  FontSize="8" Margin="0"  Name="ch1"/>
+									<Button  Name="ButtonReg1"
+											 Click="Reg1Button"
+											 Content="Подтвердить"
+											 HorizontalAlignment="Center"
+											 Margin="5"/>
+									<TextBlock Name="InfoReg"
+											   Foreground="Red"
+											   TextAlignment="Center"
+											   FontSize="10"
+											   Margin="5"/>
+								</StackPanel>
+								<StackPanel
+									Name="registration2"
+									IsVisible ="False">
+									<TextBlock Name="name2"
+											   TextAlignment="Center"
+											   Margin="5"/>
+									<TextBox Watermark="Код"
+											 Opacity="5"
+											 Name="Code"
+											 Margin="5"
+											 CornerRadius="100"
+											 Background="Gainsboro"/>
+									<Button  Name="ButtonReg2"  Content="Подтвердить"
+											 HorizontalAlignment="Center"
+											 Click="Reg2Button"
+											 Margin="5"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</TabItem>
+					<TabItem Header="Вход" Grid.Row="1" Grid.Column="1">
+						<Border
+							Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							BoxShadow="5 5 10 0 Gray"
+							BorderBrush="Black"
+							BorderThickness="3"
+							CornerRadius="10"
+							Padding="10" Margin="10">
+							<StackPanel Width="255" Margin="20">
+								<TextBlock Text="Вход"
+										   TextAlignment="Center"
+										   FontSize="30"
+										   Margin="5"/>
+								<TextBox Watermark="Адрес эл.почты"
+										 Name="emailentry"
+										 Opacity="5"
+										 Margin="5"
+										 CornerRadius="100"
+										 Background="Gainsboro"/>
+								<TextBox Watermark="Пароль" PasswordChar="*"
+										 Opacity="5" Margin="5" Name="pass"
+										 CornerRadius="100" Background="Gainsboro"/>
+								<Button Content="Подтвердить"
+										HorizontalAlignment="Center"
+										Margin="5" Click="ButtonEnter" />
+								<TextBlock Name="EtryInfo" Foreground="Red"/>
+							</StackPanel>
+						</Border>
+					</TabItem>
+					<TabItem Header="Забыл пороль">
+						<Border
+							Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							BoxShadow="5 5 10 0 Gray"
+							BorderBrush="Black"
+							BorderThickness="3"
+							CornerRadius="10"
+							Padding="10"
+							Margin="10">
+							<StackPanel Width="255" Margin="20">
+								<TextBlock Text="Введите адрес электронной почты"
+										   TextAlignment="Center"
+										   FontSize="12"
+										   Margin="5"/>
+								<TextBlock Text="Мы отправим на нём код для подтверждения"
+										   TextAlignment="Center"
+										   FontSize="10"
+										   Margin="5"/>
+								<TextBox Watermark="Адрес эл.почты"
+										 Opacity="5"
+										 Margin="5"
+										 CornerRadius="100"
+										 Background="Gainsboro"/>
+								<Button Content="Подтвердить"
+										HorizontalAlignment="Center"
+										Margin="5"/>
+								<TextBlock Text="Введите код потверждения"
+										   TextAlignment="Center"
+										   FontSize="12"
+										   Margin="0 40 0 0"/>
+								<TextBox Watermark="Код"
+										 Opacity="5"
+										 Margin="5"
+										 CornerRadius="100"
+										 Background="Gainsboro"
+										 IsEnabled="False"/>
+								<Button Content="Подтвердить"
+										HorizontalAlignment="Center"
+										IsEnabled="False"
+										Margin="5" />
+							</StackPanel>
+						</Border>
+					</TabItem>
+				</TabControl>
+			</Grid>
+		</StackPanel>
+		<StackPanel IsVisible="False" Name="Profile" Background="Aqua">
+			<Border
+						Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center"
+						BoxShadow="5 5 10 0 Gray"
+						BorderBrush="Black"
+						BorderThickness="3"
+						CornerRadius="10"
+						Padding="10" Margin="10">
+				<StackPanel
+					Width="230"
+					Margin="10">
+					<TextBlock Text="Имя"/>
+					<TextBox Name="CurName" />
+					<TextBlock Text="Фамилия"/>
+					<TextBox Name="CurSurName" />
+					<TextBlock Text="Возраст"/>
+					<TextBox Name="CurAge" />
+					<TextBlock Text="Адрес эдектронной почты:"/>
+					<TextBlock Name="CurEmail" />
+					<TextBlock Text="Дата регистрации:"/>
+					<TextBlock Name="CurRegDate" />
+					<Button Content="Подтвердить" Click="SettingComfirm"/>
+				</StackPanel>
+			</Border>
+
+		</StackPanel>
+		<ScrollViewer Name="BugPage" IsVisible="False">
+			<Grid ColumnDefinitions="125,550,125"
+					Background="Wheat">
+				<StackPanel Grid.Column="1" Background="White">
+					<Grid HorizontalAlignment="Center" ColumnDefinitions="550" RowDefinitions="200,200,200,200,200">
+						<Panel Grid.Row="0">
+							<Grid Background="LightGreen" HorizontalAlignment="Center" ColumnDefinitions="270, 275" RowDefinitions="200"  Width="550" Height="200">
+								<TextBlock Text="Божья коровка текст"
+										   Foreground="DarkGreen"
+										   HorizontalAlignment="Left"
+										   VerticalAlignment="Top"
+										   Grid.Column="0"
+										   TextAlignment="Center"
+										   FontSize="14"
+										   Margin="30"/>
+								<Image Grid.Column="1" MaxHeight="300"
+									   ToolTip.Tip="Это божья коровка" HorizontalAlignment="Right"
+									   Source="\Assets\ladybug.jpg" />
+							</Grid>
+							<Border
+									Grid.Row="0"
+									BorderBrush="White"
+									BorderThickness="20"
+									Padding="10" />
+							<Border
+								Grid.Row="0"
+								BorderBrush="White"
+								BorderThickness="20"
+								Padding="10"
+								CornerRadius="27.1824"/>
+						</Panel>
+						<Panel Grid.Row="1">
+							<Grid Background="LightBlue" HorizontalAlignment="Center" ColumnDefinitions="270, 275" RowDefinitions="200"  Width="550" Height="200">
+								<TextBlock Text="Стрекоза текст"
+										   Foreground="DarkCyan"
+										   HorizontalAlignment="Left"
+										   VerticalAlignment="Top"
+										   Grid.Column="1"
+										   TextAlignment="Center"
+										   FontSize="14"
+										   Margin="30"/>
+								<Image HorizontalAlignment="Right"  Grid.Column="0" MaxHeight="300"
+									   ToolTip.Tip="Это стрекоза"
+									   Source="\Assets\dragonfly.jpg" />
+							</Grid>
+							<Border
+									Grid.Row="0"
+									BorderBrush="White"
+									BorderThickness="20"
+									Padding="10" />
+							<Border
+								Grid.Row="0"
+								BorderBrush="White"
+								BorderThickness="20"
+								Padding="10"
+								CornerRadius="27.1824"/>
+						</Panel>
+						<Border Background="Gainsboro"
+								Grid.Row="2"
+								BorderBrush="Black"
+								BorderThickness="2"
+								CornerRadius="3"
+								Padding="10" Margin="10">
+						</Border>
+						<Border Background="Gainsboro"
+								Grid.Row="3"
+								BorderBrush="Black"
+								BorderThickness="2"
+								CornerRadius="3"
+								Padding="10" Margin="10">
+						</Border>
+						<Border Background="Gainsboro"
+								Grid.Row="4"
+								BorderBrush="Black"
+								BorderThickness="2"
+								CornerRadius="3"
+								Padding="10" Margin="10">
+						</Border>
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+		<Border IsVisible="False" Name="Pane">
+			<SplitView IsPaneOpen="False"
+					   OpenPaneLength="300"
+					   DisplayMode="Inline"
+					   x:Name="SplitView1" >
+				<SplitView.Pane>
+					<Grid Height="450">
+					<StackPanel VerticalAlignment="Top">
+						<TextBlock Text="Действия"
+								   FontSize="24"
+								   VerticalAlignment="Top"
+								   Margin="10"
+								   HorizontalAlignment="Center"/>
+						<Grid HorizontalAlignment="Center" ColumnDefinitions="Auto,Auto">
+							<TextBlock Grid.Column="0"
+									   Text="Имя:"
+									   FontSize="15"
+									   VerticalAlignment="Top"
+									   HorizontalAlignment="Center"/>
+							<TextBlock Grid.Column="1"
+									   Name="PaneName"
+									   FontSize="15"
+									   VerticalAlignment="Top"
+									   HorizontalAlignment="Center"/>
+						</Grid>
+						<Button VerticalAlignment="Top" Margin="10" Height="30" Width="250"
+								HorizontalAlignment="Center"
+								HorizontalContentAlignment="Center"
+								Background="LightGray" Content="Профиль" Click="Settings"/>
+						<Button VerticalAlignment="Top" Height="30" Width="250"
+								HorizontalAlignment="Center"
+								HorizontalContentAlignment="Center"
+								Background="LightGray"  Content="Основная страница" Click="MainPage" />
+					</StackPanel>
+
+						<Button Content="Выйти" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="QiutButton"/>
+					</Grid>
+				</SplitView.Pane>
+				<Panel VerticalAlignment="Top">
+					<ToggleButton VerticalAlignment="Top"
+								  Height="45" Width="50" Background="White"
+								  Name="MainButtom" IsChecked="False" Click="PaneButton">
+						<StackPanel>
+							<Image Name="PanePic1" IsVisible="False" Source="\Assets\Back.png" />
+							<Image Name="PanePic2" Source="\Assets\HomePage.png" />
+						</StackPanel>
+					</ToggleButton>
+				</Panel>
+			</SplitView>
+		</Border>
+	</Grid>
+</Window>
